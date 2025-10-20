@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Términos y Condiciones - PEAM Río Cuarto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #1e1b4b;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: var(--text-dark);
+            background: var(--light-bg);
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 1rem;
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .back-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Content */
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .last-updated {
+            background: linear-gradient(135deg, #e0e7ff, #f3e8ff);
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .last-updated strong {
+            color: var(--primary-color);
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            margin: 2.5rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        h3 {
+            color: var(--secondary-color);
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul, ol {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        li {
+            margin-bottom: 0.8rem;
+        }
+
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7, #fde68a);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #f59e0b;
+        }
+
+        .highlight-box h3 {
+            color: #d97706;
+            margin-top: 0;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 2rem 0;
+            border-left: 4px solid #3b82f6;
+        }
+
+        .info-box h3 {
+            color: #1d4ed8;
+            margin-top: 0;
+        }
+
+        .contact-section {
+            background: linear-gradient(135deg, #f8fafc, #e0e7ff);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .contact-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .contact-info p {
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .contact-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .container {
+                margin: 2rem 1rem;
+                padding: 2rem 1.5rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            h3 {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            .back-link {
+                display: none;
+            }
+            
+            .container {
+                box-shadow: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>Términos y Condiciones</h1>
+        <p>Perdiendo el Miedo a la Inteligencia Artificial - PEAM Río Cuarto</p>
+        <a href="index.html" class="back-link">← Volver al sitio principal</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="last-updated">
+            <strong>Última actualización:</strong> 20 de octubre de 2025
+        </div>
+
+        <h2>1. Introducción</h2>
+        <p>Bienvenido a la plataforma web del curso "Perdiendo el Miedo a la Inteligencia Artificial" del Programa Educativo Adulto Mayor (PEAM) de Río Cuarto, Córdoba, Argentina. Al acceder y utilizar este sitio web, usted acepta cumplir con los siguientes términos y condiciones.</p>
+        <p>Estos términos se aplican a todos los visitantes, usuarios y participantes del curso que accedan o interactúen con el contenido de este sitio web.</p>
+
+        <h2>2. Uso del Sitio Web</h2>
+        <h3>2.1 Propósito Educativo</h3>
+        <p>Este sitio web ha sido creado con fines exclusivamente educativos y demostrativos para los participantes del curso "Perdiendo el Miedo a la Inteligencia Artificial" del PEAM. El contenido presentado está destinado a:</p>
+        <ul>
+            <li>Mostrar los avances y logros de los participantes del curso</li>
+            <li>Compartir conocimientos sobre inteligencia artificial</li>
+            <li>Crear una galería de trabajos realizados durante el programa</li>
+            <li>Fomentar el aprendizaje y la participación de adultos mayores en tecnologías de IA</li>
+        </ul>
+
+        <h3>2.2 Acceso al Sitio</h3>
+        <p>El acceso a este sitio web es gratuito y está disponible para el público en general. Sin embargo, ciertas funcionalidades, como la subida de contenido, pueden estar restringidas a participantes activos del curso PEAM.</p>
+
+        <h2>3. Propiedad Intelectual y Derechos de Autor</h2>
+        
+        <h3>3.1 Contenido Generado por IA</h3>
+        <p>Las imágenes, videos, música y otros contenidos creativos mostrados en este sitio han sido generados con la asistencia de herramientas de inteligencia artificial, incluyendo pero no limitándose a:</p>
+        <ul>
+            <li>ChatGPT (OpenAI)</li>
+            <li>DALL-E (OpenAI)</li>
+            <li>Midjourney</li>
+            <li>Suno AI</li>
+            <li>Runway ML</li>
+            <li>ElevenLabs</li>
+        </ul>
+
+        <div class="highlight-box">
+            <h3>⚠️ Importante sobre Derechos de Autor</h3>
+            <p>La legislación sobre derechos de autor de contenido generado por IA está en constante evolución. En Argentina, la Ley 11.723 de Propiedad Intelectual protege obras originales, pero la aplicación específica a contenido generado por IA aún está siendo definida jurídicamente.</p>
+        </div>
+
+        <h3>3.2 Derechos de los Participantes</h3>
+        <p>Los participantes del curso que crean contenido utilizando herramientas de IA mantienen los siguientes derechos, sujetos a las condiciones de uso de cada plataforma de IA:</p>
+        <ul>
+            <li>Derecho a ser reconocidos como creadores del contenido mediante prompts e instrucciones</li>
+            <li>Derecho a exhibir su trabajo en la galería del sitio web</li>
+            <li>Derecho a solicitar la eliminación de su contenido en cualquier momento</li>
+        </ul>
+
+        <h3>3.3 Licencias de Plataformas de IA</h3>
+        <p>El uso de contenido generado por IA está sujeto a los términos y condiciones específicos de cada plataforma utilizada. Los usuarios deben revisar y cumplir con:</p>
+        <ul>
+            <li>Los términos de servicio de OpenAI para contenido de ChatGPT y DALL-E</li>
+            <li>Los términos de servicio de Midjourney</li>
+            <li>Las políticas de uso comercial y no comercial de cada herramienta</li>
+            <li>Las restricciones de distribución y modificación establecidas por cada proveedor</li>
+        </ul>
+
+        <h2>4. Subida de Contenido</h2>
+        
+        <h3>4.1 Requisitos para Subir Contenido</h3>
+        <p>Los usuarios que deseen subir contenido a la galería deben:</p>
+        <ol>
+            <li>Ser participantes activos del curso PEAM "Perdiendo el Miedo a la IA"</li>
+            <li>Garantizar que el contenido fue creado por ellos utilizando herramientas de IA</li>
+            <li>Proporcionar información precisa sobre el título y la autoría del trabajo</li>
+            <li>Asegurarse de que el contenido no viola derechos de terceros</li>
+            <li>Verificar que el contenido cumple con las normas de contenido apropiado</li>
+        </ol>
+
+        <h3>4.2 Contenido Prohibido</h3>
+        <p>Está estrictamente prohibido subir contenido que:</p>
+        <ul>
+            <li>Contenga material ofensivo, discriminatorio o de odio</li>
+            <li>Viole derechos de autor, marcas registradas o derechos de propiedad intelectual</li>
+            <li>Incluya contenido sexual explícito o inapropiado</li>
+            <li>Promueva violencia, actividades ilegales o comportamientos peligrosos</li>
+            <li>Contenga información personal sensible de terceros sin autorización</li>
+            <li>Incluya contenido que pueda ser considerado spam o publicidad no autorizada</li>
+        </ul>
+
+        <h3>4.3 Moderación de Contenido</h3>
+        <p>El PEAM se reserva el derecho de:</p>
+        <ul>
+            <li>Revisar todo el contenido subido antes de su publicación</li>
+            <li>Eliminar contenido que viole estos términos y condiciones</li>
+            <li>Suspender o revocar el acceso a usuarios que infrinjan repetidamente estas normas</li>
+            <li>Modificar o eliminar contenido sin previo aviso si se considera necesario</li>
+        </ul>
+
+        <h2>5. Privacidad y Protección de Datos</h2>
+        
+        <div class="info-box">
+            <h3>🔒 Protección de Datos Personales</h3>
+            <p>Este sitio web cumple con la Ley 25.326 de Protección de Datos Personales de Argentina y respeta la privacidad de todos los usuarios.</p>
+        </div>
+
+        <h3>5.1 Información Recopilada</h3>
+        <p>El sitio web puede recopilar la siguiente información:</p>
+        <ul>
+            <li>Nombre del participante (proporcionado voluntariamente al subir contenido)</li>
+            <li>Imágenes, videos o audio creados con IA y subidos por el usuario</li>
+            <li>Información técnica básica de navegación (cookies, dirección IP, tipo de navegador)</li>
+        </ul>
+
+        <h3>5.2 Uso de la Información</h3>
+        <p>La información recopilada se utiliza exclusivamente para:</p>
+        <ul>
+            <li>Gestionar y mostrar el contenido en la galería</li>
+            <li>Mejorar la experiencia del usuario en el sitio web</li>
+            <li>Fines estadísticos y educativos del programa PEAM</li>
+            <li>Comunicación relacionada con el curso (si se proporciona información de contacto)</li>
+        </ul>
+
+        <h3>5.3 Derechos de los Usuarios</h3>
+        <p>De acuerdo con la Ley 25.326, los usuarios tienen derecho a:</p>
+        <ul>
+            <li>Acceder a su información personal almacenada</li>
+            <li>Rectificar datos incorrectos o desactualizados</li>
+            <li>Solicitar la eliminación de su información personal</li>
+            <li>Revocar su consentimiento para el tratamiento de datos</li>
+        </ul>
+
+        <h2>6. Limitación de Responsabilidad</h2>
+        
+        <h3>6.1 Contenido de Terceros</h3>
+        <p>El PEAM no se hace responsable por:</p>
+        <ul>
+            <li>La precisión, calidad o legalidad del contenido generado por IA</li>
+            <li>Posibles violaciones de derechos de autor en contenido generado por usuarios</li>
+            <li>El funcionamiento o disponibilidad de herramientas de IA de terceros</li>
+            <li>Cambios en las políticas de uso de plataformas de IA externas</li>
+        </ul>
+
+        <h3>6.2 Disponibilidad del Servicio</h3>
+        <p>El PEAM se esfuerza por mantener el sitio web disponible, pero no garantiza:</p>
+        <ul>
+            <li>Acceso ininterrumpido al sitio web</li>
+            <li>Ausencia de errores o fallos técnicos</li>
+            <li>Seguridad absoluta contra ataques cibernéticos o pérdida de datos</li>
+        </ul>
+
+        <h3>6.3 Enlaces Externos</h3>
+        <p>Este sitio web puede contener enlaces a sitios externos. El PEAM no es responsable del contenido, políticas de privacidad o prácticas de estos sitios de terceros.</p>
+
+        <h2>7. Modificaciones a los Términos</h2>
+        <p>El PEAM se reserva el derecho de modificar estos términos y condiciones en cualquier momento. Las modificaciones entrarán en vigor inmediatamente después de su publicación en el sitio web. Se recomienda a los usuarios revisar periódicamente esta página para estar informados de cualquier cambio.</p>
+        <p>El uso continuado del sitio web después de la publicación de cambios constituye la aceptación de los nuevos términos.</p>
+
+        <h2>8. Legislación Aplicable y Jurisdicción</h2>
+        <p>Estos términos y condiciones se rigen por las leyes de la República Argentina. Cualquier disputa relacionada con el uso de este sitio web será sometida a la jurisdicción exclusiva de los tribunales competentes de Río Cuarto, Córdoba, Argentina.</p>
+
+        <h2>9. Disposiciones Generales</h2>
+        
+        <h3>9.1 Separabilidad</h3>
+        <p>Si alguna disposición de estos términos y condiciones es declarada inválida o inaplicable, las demás disposiciones permanecerán en pleno vigor y efecto.</p>
+
+        <h3>9.2 Renuncia</h3>
+        <p>La falta de ejercicio o aplicación por parte del PEAM de cualquier derecho o disposición de estos términos no constituye una renuncia a dicho derecho o disposición.</p>
+
+        <h3>9.3 Acuerdo Completo</h3>
+        <p>Estos términos y condiciones constituyen el acuerdo completo entre el usuario y el PEAM con respecto al uso del sitio web.</p>
+
+        <h2>10. Reconocimientos</h2>
+        <p>Este proyecto educativo ha sido posible gracias a:</p>
+        <ul>
+            <li>El Programa Educativo Adulto Mayor (PEAM) de Río Cuarto</li>
+            <li>Los participantes del curso "Perdiendo el Miedo a la IA"</li>
+            <li>Las plataformas de inteligencia artificial que facilitan el aprendizaje y la creatividad</li>
+            <li>El compromiso de educadores y facilitadores del programa</li>
+        </ul>
+
+        <!-- Contact Section -->
+        <div class="contact-section">
+            <h3>📧 Contacto</h3>
+            <div class="contact-info">
+                <p>Si tiene preguntas sobre estos términos y condiciones, puede contactarnos:</p>
+                <p><strong>Email:</strong> <a href="mailto:contacto@peamriocuarto.edu.ar">contacto@peamriocuarto.edu.ar</a></p>
+                <p><strong>Teléfono:</strong> <a href="tel:+543584000000">+54 358 400-0000</a></p>
+                <p><strong>Dirección:</strong> Río Cuarto, Córdoba, Argentina</p>
+            </div>
+        </div>
+
+        <div style="margin-top: 3rem; padding-top: 2rem; border-top: 2px solid var(--light-bg); text-align: center; color: var(--text-light);">
+            <p><strong>Al utilizar este sitio web, usted reconoce que ha leído, entendido y acepta estar sujeto a estos Términos y Condiciones.</strong></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Río Cuarto - Programa Educativo Adulto Mayor</p>
+        <p style="margin-top: 0.5rem; opacity: 0.8;">Río Cuarto, Córdoba, Argentina</p>
+    </footer>
+</body>
+</html>

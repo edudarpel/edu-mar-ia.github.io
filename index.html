@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perdiendo el Miedo a la Inteligencia Artificial - PEAM Río Cuarto</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --accent-color: #ec4899;
+            --dark-bg: #1e1b4b;
+            --light-bg: #f8fafc;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.9), rgba(139, 92, 246, 0.9)),
+                        url('https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=2000') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0,0,0,0.3) 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: linear-gradient(135deg, #fff, #e0e7ff);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '↓';
+            font-size: 2rem;
+            color: white;
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--light-bg);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-text h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+
+        .about-image {
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 5rem;
+            color: white;
+            box-shadow: 0 20px 50px rgba(99, 102, 241, 0.3);
+        }
+
+        /* IA Explanation */
+        #ia-explanation {
+            background: white;
+        }
+
+        .ia-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ia-card {
+            background: linear-gradient(135deg, #f8fafc, #e0e7ff);
+            padding: 2rem;
+            border-radius: 20px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .ia-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(99, 102, 241, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .ia-card-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .ia-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* IA Tools List */
+        #ia-tools {
+            background: var(--light-bg);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .tool-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .tool-card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+
+        .tool-card h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .tool-tag {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Gallery */
+        #gallery {
+            background: white;
+        }
+
+        .gallery-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .tab-btn {
+            padding: 1rem 2rem;
+            background: var(--light-bg);
+            border: 2px solid var(--primary-color);
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .tab-btn:hover, .tab-btn.active {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .gallery-content {
+            display: none;
+        }
+
+        .gallery-content.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background: var(--light-bg);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            opacity: 0.9;
+        }
+
+        .gallery-item-info {
+            padding: 1rem;
+            background: white;
+        }
+
+        .gallery-item-info h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-item-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        .audio-player {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .audio-player audio {
+            width: 100%;
+            margin-top: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-bg);
+            color: white;
+            padding: 3rem 2rem 2rem;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            margin-bottom: 1rem;
+            color: var(--accent-color);
+        }
+
+        .footer-content p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .footer-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+            margin: 2rem 0;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Modal for image enlargement */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 0 50px rgba(255, 255, 255, 0.2);
+            animation: zoomIn 0.3s ease-out;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            color: white;
+            font-size: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+            line-height: 1;
+            background: rgba(0, 0, 0, 0.5);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: var(--primary-color);
+            transform: rotate(90deg);
+        }
+
+        .modal-info {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .modal-info h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .modal-info p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image {
+                height: 250px;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .gallery-content.active {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-close {
+                top: 20px;
+                right: 20px;
+                font-size: 40px;
+                width: 50px;
+                height: 50px;
+            }
+
+            .modal-info {
+                bottom: 20px;
+                padding: 0.8rem 1.5rem;
+                max-width: 90%;
+            }
+
+            .modal-info h4 {
+                font-size: 1rem;
+            }
+
+            .modal-info p {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo">🤖</div>
+            <h1>Perdiendo el Miedo a la Inteligencia Artificial</h1>
+            <p class="subtitle">Programa Educativo Adulto Mayor - PEAM<br>Río Cuarto, Córdoba, Argentina</p>
+        </div>
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">Nuestra Historia</h2>
+            <p class="section-subtitle">Un viaje de aprendizaje y descubrimiento</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Sobre el Curso</h3>
+                    <p>En el año 2025, el PEAM de Río Cuarto decidió embarcarse en una misión revolucionaria: acercar la tecnología de Inteligencia Artificial a nuestros adultos mayores. Nació así "Perdiendo el Miedo a la IA", un curso diseñado especialmente para desmitificar esta tecnología y demostrar que la edad no es barrera para el aprendizaje.</p>
+                    <p style="margin-top: 1rem;">A través de clases prácticas, dinámicas y llenas de creatividad, nuestros participantes han descubierto un nuevo mundo de posibilidades. Han creado imágenes, compuesto música, generado videos y, sobre todo, han comprendido que la inteligencia artificial no es algo que temer, sino una herramienta maravillosa que puede enriquecer sus vidas.</p>
+                    <p style="margin-top: 1rem;">Este espacio digital es el testimonio vivo de sus logros, creatividad y valentía para adentrarse en el futuro con curiosidad y entusiasmo.</p>
+                </div>
+                <div class="about-image">
+                    🎓
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IA Explanation -->
+    <section id="ia-explanation">
+        <div class="container">
+            <h2 class="section-title">¿Qué es la Inteligencia Artificial?</h2>
+            <p class="section-subtitle">Una explicación sencilla para entender esta tecnología</p>
+            <div style="max-width: 800px; margin: 0 auto 3rem; text-align: center; font-size: 1.1rem; color: var(--text-dark);">
+                <p>La Inteligencia Artificial (IA) es como tener un asistente muy inteligente que puede aprender, entender y ayudarnos con muchas tareas. Imagina que puedes hablar con tu teléfono y él te entiende, o que puedes crear un dibujo simplemente describiéndolo con palabras. Eso es la IA.</p>
+            </div>
+            <div class="ia-cards">
+                <div class="ia-card">
+                    <div class="ia-card-icon">💬</div>
+                    <h3>Comunicación Diaria</h3>
+                    <p>La IA nos ayuda a escribir mensajes, corregir textos y traducir idiomas para comunicarnos mejor con familiares y amigos en todo el mundo.</p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-card-icon">🏥</div>
+                    <h3>Salud y Bienestar</h3>
+                    <p>Recordatorios de medicamentos, seguimiento de citas médicas y aplicaciones que nos ayudan a mantenernos activos y saludables.</p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-card-icon">🎨</div>
+                    <h3>Creatividad</h3>
+                    <p>Podemos crear arte, música y contenido visual sin necesidad de ser artistas profesionales. La IA nos ayuda a expresar nuestra imaginación.</p>
+                </div>
+                <div class="ia-card">
+                    <div class="ia-card-icon">🏠</div>
+                    <h3>Hogar Inteligente</h3>
+                    <p>Desde controlar luces y temperatura con la voz, hasta recibir sugerencias de recetas basadas en lo que tenemos en casa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- IA Tools -->
+    <section id="ia-tools">
+        <div class="container">
+            <h2 class="section-title">Herramientas de IA que Usamos</h2>
+            <p class="section-subtitle">Conoce las aplicaciones que estamos explorando en el curso</p>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <h3>ChatGPT</h3>
+                    <p>Un asistente conversacional que responde preguntas, ayuda a escribir textos, explicar conceptos y resolver dudas de todo tipo. Es como tener un enciclopedia interactiva que siempre está disponible.</p>
+                    <span class="tool-tag">Conversación</span>
+                </div>
+                <div class="tool-card">
+                    <h3>DALL-E / Midjourney</h3>
+                    <p>Herramientas que crean imágenes a partir de descripciones de texto. Solo tienes que describir lo que imaginas y la IA lo convierte en una imagen artística única.</p>
+                    <span class="tool-tag">Creación de Imágenes</span>
+                </div>
+                <div class="tool-card">
+                    <h3>Suno AI</h3>
+                    <p>Genera música original con letras y melodías personalizadas. Puedes crear canciones completas indicando el estilo, tema y estado de ánimo que deseas.</p>
+                    <span class="tool-tag">Música</span>
+                </div>
+                <div class="tool-card">
+                    <h3>Runway ML</h3>
+                    <p>Permite crear y editar videos de manera profesional sin conocimientos técnicos avanzados. Ideal para dar vida a ideas visuales y contar historias.</p>
+                    <span class="tool-tag">Video</span>
+                </div>
+                <div class="tool-card">
+                    <h3>CapCut</h3>
+                    <p>Edición de video con IA, generador de texto a video, avatares.</p>
+                    <span class="tool-tag">Video</span>
+                </div>
+                <div class="tool-card">
+                    <h3>ElevenLabs</h3>
+                    <p>Convierte texto en voz natural y realista. Útil para crear audiolibros, narraciones o simplemente escuchar textos largos en lugar de leerlos.</p>
+                    <span class="tool-tag">Voz</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galería de Creaciones</h2>
+            <p class="section-subtitle">Trabajos realizados por nuestros participantes</p>
+            
+            <div class="gallery-tabs">
+                <button class="tab-btn active" onclick="showGallery('images')">📸 Imágenes</button>
+                <button class="tab-btn" onclick="showGallery('videos')">🎬 Videos</button>
+                <button class="tab-btn" onclick="showGallery('music')">🎵 Música</button>
+            </div>
+
+            <!-- Images Gallery -->
+            <div id="images" class="gallery-content active">
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1707343843437-caacff5cfa74?q=80&w=600" alt="Creación IA 1">
+                    <div class="gallery-item-info">
+                        <h4>Paisaje de Ensueño</h4>
+                        <p>Creado con DALL-E - María González</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="montaña-nevada.jpg" alt="Creación IA 2">
+                    <div class="gallery-item-info">
+                        <h4>Montaña Nevada</h4>
+                        <p>Creado con Microsoft Designer - Marcelina</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="castillo-caramelo.png" alt="Creación IA 3">
+                    <div class="gallery-item-info">
+                        <h4>Castillo de Caramelo en color Pastel</h4>
+                        <p>Creado con Microsoft Designer - Marcelina</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="anciano-tablet.png" alt="Creación IA 4">
+                    <div class="gallery-item-info">
+                        <h4>Adulto Mayor con tablet</h4>
+                        <p>Creado con Microsoft Designer - Marcelina</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="runwayml.com-juan_pirincho.png" alt="Creación IA 5">
+                    <div class="gallery-item-info">
+                        <h4>El Pirincho Enfermo" (1943) de Constacio C. Vigil</h4>
+                        <p>Creado con Runway ML - Eduardo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="ChatGPT Image 20 oct 2025, 12_01_23.png" alt="Creación IA 6">
+                    <div class="gallery-item-info">
+                        <h4>"El Pirincho Enfermo" (1943) de Constacio C. Vigil</h4>
+                        <p>Creado con ChatGPT - Eduardo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos Gallery -->
+            <div id="videos" class="gallery-content">
+                <div class="gallery-item">
+                    <video controls poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=600">
+                        <source src="platero_y_yo_2.mp4" type="video/mp4">
+                        Video de ejemplo
+                    </video>
+                    <div class="gallery-item-info">
+                        <h4>Platero y yo</h4>
+                        <p>Creado con CapCut - Eduardo</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <video controls poster="https://images.unsplash.com/photo-1536240478700-b869070f9279?q=80&w=600">
+                        <source src="juan_pirincho.mp4" type="video/mp4">
+                        Video de ejemplo
+                    </video>
+                    <div class="gallery-item-info">
+                        <h4>Juan Pirincho ó El Pirincho Enfermo</h4>
+                        <p>Creado con CapCut - Eduardo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Music Gallery -->
+            <div id="music" class="gallery-content">
+                <div class="gallery-item">
+                    <div class="audio-player">
+                        <div class="ia-card-icon">🎼</div>
+                        <h4>DigitalGhosts</h4>
+                        <p>Creado con Suno AI - Eduardo</p>
+                        <audio controls preload="auto">
+                            <source src="Digital Ghosts.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <div class="audio-player">
+                        <div class="ia-card-icon">🎵</div>
+                        <h4>Electronic Minds</h4>
+                        <p>Creado con Suno AI - Eduardo</p>
+                        <audio controls preload="auto">
+                            <source src="Electric Minds.mp3" type="audio/mpeg">
+                            Tu navegador no soporta el elemento de audio.
+                        </audio>
+						
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <h3>Derechos de Autor y Propiedad Intelectual</h3>
+            <p>Las imágenes, videos y música presentados en esta página web han sido creados durante el curso "Perdiendo el Miedo a la Inteligencia Artificial" del PEAM Río Cuarto utilizando diversas herramientas de inteligencia artificial.</p>
+            <p>Si bien el contenido fue generado con asistencia de IA, los derechos de propiedad intelectual sobre las obras creativas están sujetos a las leyes de cada país y las condiciones de uso de cada plataforma de IA utilizada. En Argentina, la Ley 11.723 de Propiedad Intelectual regula estos aspectos.</p>
+            <p>El contenido mostrado es exclusivamente con fines educativos y demostrativos. Cualquier uso, reproducción o distribución del material aquí presentado debe contar con la autorización expresa de sus creadores.</p>
+            <div class="footer-divider"></div>
+            <p style="opacity: 0.7; font-size: 0.9rem;">© 2025 - Río Cuarto - Programa Educativo Adulto Mayor<br>Río Cuarto, Córdoba, Argentina</p>
+			<a href="terminos-condiciones.html" class="link-legal">Aviso Legal</a>
+		</div>
+    </footer>
+
+    <!-- Modal for enlarged images -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="modal-info" id="modalInfo">
+            <h4 id="modalTitle"></h4>
+            <p id="modalDescription"></p>
+        </div>
+    </div>
+
+    <script>
+        function showGallery(type) {
+            // Hide all gallery contents
+            const contents = document.querySelectorAll('.gallery-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Show selected gallery
+            document.getElementById(type).classList.add('active');
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+        }
+
+        // Smooth scroll for scroll indicator
+        document.querySelector('.scroll-indicator').addEventListener('click', () => {
+            document.querySelector('#about').scrollIntoView({ behavior: 'smooth' });
+        });
+
+        // Modal functionality for image enlargement
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalDescription = document.getElementById('modalDescription');
+        const closeModal = document.querySelector('.modal-close');
+
+        // Add double-click event to all gallery images
+        document.addEventListener('DOMContentLoaded', () => {
+            const galleryImages = document.querySelectorAll('.gallery-item img');
+            
+            galleryImages.forEach(img => {
+                img.addEventListener('dblclick', function() {
+                    modal.classList.add('active');
+                    modalImg.src = this.src;
+                    
+                    // Get title and description from the gallery item
+                    const itemInfo = this.nextElementSibling;
+                    modalTitle.textContent = itemInfo.querySelector('h4').textContent;
+                    modalDescription.textContent = itemInfo.querySelector('p').textContent;
+                    
+                    // Prevent body scroll when modal is open
+                    document.body.style.overflow = 'hidden';
+                });
+            });
+        });
+
+        // Close modal when clicking the X
+        closeModal.addEventListener('click', () => {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        });
+
+        // Close modal when clicking outside the image
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && modal.classList.contains('active')) {
+                modal.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>
